@@ -12,8 +12,6 @@ def decision_matrix_normalization(decision_matrix, domain_matrix, weights):
         for j in range(V.shape[1]):
             V[i, j] = weights[j] * R[i, j]
     return V
-
-
 def approximation_coefficient(decision_matrix, domain_matrix, weights):
     V = decision_matrix_normalization(decision_matrix, domain_matrix, weights)
     # Ideal and Anti-Ideal Solutions Calculation
