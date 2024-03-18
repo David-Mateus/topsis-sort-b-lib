@@ -12,8 +12,6 @@ def decision_matrix_normalization(decision_matrix, domain_matrix, weights):
         for j in range(V.shape[1]):
             V[i, j] = weights[j] * R[i, j]
     return V
-
-
 def approximation_coefficient(decision_matrix, domain_matrix, weights):
     V = decision_matrix_normalization(decision_matrix, domain_matrix, weights)
     # Ideal and Anti-Ideal Solutions Calculation
@@ -80,14 +78,11 @@ def topsis_b_sort_profile_classification(decision_matrix, domain_matrix, dominan
                     break
         C[i, 1] = Cl[i]
 
-    sorted_indices = np.argsort(-C[:, 1])  # Ordena os índices em ordem decrescente com base nos valores de Cl
-    C_sorted = C[sorted_indices]
-    
-    best_solution_index = sorted_indices[0]  # Índice do melhor valor após a ordenação
+    best_solution_index = np.argmax(C[:, 1])  
     best_solution = decision_matrix[best_solution_index] 
-    best_profile = int(C_sorted[0, 0])  
+    best_profile = int(C[best_solution_index, 0])  
 
-    return C_sorted, best_solution, best_profile
+    return C, best_solution, best_profile
 
 # Leitura dos dados do arquivo
 # data = np.loadtxt('./advertising.csv', delimiter=',', skiprows=1)
