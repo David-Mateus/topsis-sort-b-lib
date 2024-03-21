@@ -1,5 +1,0 @@
-from topsis_Sort_B import decision_matrix_normalization
-from topsis_Sort_B import approximation_coefficient
-from topsis_Sort_B import dominant_profiles_distances
-from topsis_Sort_B import topsis_b_sort_profile_classification
-
